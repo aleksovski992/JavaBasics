@@ -32,8 +32,7 @@ public class AutomationTests {
             int index = (int) (rnd.nextFloat() * salchars.length());
             salt.append(salchars.charAt(index));
         }
-        String saltStr = salt.toString();
-        return saltStr;
+        return salt.toString();
     }
 
 
