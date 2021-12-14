@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
 public class AutomationTests {
     //declare WebDriver
@@ -21,6 +22,19 @@ public class AutomationTests {
 
     //declare Wait WebDriver
     WebDriverWait wait;
+
+
+    public String getSaltString() {
+        String salchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * salchars.length());
+            salt.append(salchars.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
 
 
     @BeforeTest
@@ -55,7 +69,7 @@ public class AutomationTests {
         //click on the login button
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("login"))).click();
         //input email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email_create"))).sendKeys("aleksandar.aleksovski100@scalefocus.com");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email_create"))).sendKeys(getSaltString() + "@scalefocus.com");
         //click on "Create account"
         driver.findElement(By.id("SubmitCreate")).click();
     }
