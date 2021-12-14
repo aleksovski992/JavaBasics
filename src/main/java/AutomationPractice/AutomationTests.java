@@ -55,7 +55,7 @@ public class AutomationTests {
         //click on the login button
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("login"))).click();
         //input email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email_create"))).sendKeys("aleksandar.aleksovski37@scalefocus.com");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email_create"))).sendKeys("aleksandar.aleksovski100@scalefocus.com");
         //click on "Create account"
         driver.findElement(By.id("SubmitCreate")).click();
     }
